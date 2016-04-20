@@ -8,14 +8,14 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
-using travel_blog.Models;
+using Travel_Blog.Models;
 
 namespace travel_blog
 {
     public class Startup
     {
         public IConfigurationRoot Configuration { get; set; }
-        public Startup()
+        public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json");
@@ -27,7 +27,7 @@ namespace travel_blog
 
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<SportsLeagueContext>(options =>
+                .AddDbContext<TravelBlogDbContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
         }
 
