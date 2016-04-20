@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Travel_Blog.Models.People>
+
+<html>
+<head>
+    <title>Travel Blog</title>
+</head>
+<body>
+    <h3>Travel Blog!</h3>
+    <h4>Name:</h4>
+    <ul>
+        @foreach(var listPeople in Model)
+        {
+            <li>@Html.DisplayFor(modelPeople => listPeople.Name) | @Html.ActionLink("Details", "Details", new { id = listPeople.PeopleId })</li>  
+        }
+    </ul>
+</body>
+</html>
