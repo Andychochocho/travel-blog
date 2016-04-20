@@ -18,6 +18,7 @@ namespace Travel_Blog.Controllers
         public IActionResult Details(int id)
         {
             var thisLocation = db.Locations.FirstOrDefault(locations => locations.LocationId == id);
+            thisLocation.Experiences = db.Experiences.Where(experience => experience.LocationId == id).ToList();
             return View(thisLocation);
         }
     }

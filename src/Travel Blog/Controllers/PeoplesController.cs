@@ -19,5 +19,17 @@ namespace Travel_Blog.Controllers
             var thisPerson = db.Peoples.FirstOrDefault(peoples => peoples.PeopleId == id);
             return View(thisPerson);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create (People people)
+        {
+            db.Peoples.Add(people);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
