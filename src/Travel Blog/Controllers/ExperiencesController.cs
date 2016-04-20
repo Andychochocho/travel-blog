@@ -14,5 +14,11 @@ namespace Travel_Blog.Controllers
         {
             return View(db.Experiences.ToList());
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisExperience = db.Experiences.FirstOrDefault(experiences => experiences.ExperienceId == id);
+            return View(thisExperience);
+        }
     }
 }
