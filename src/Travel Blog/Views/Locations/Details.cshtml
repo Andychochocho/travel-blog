@@ -2,18 +2,23 @@
 
 <html>
 <head>
-    <title>Details</title>
+    <title>Experiences</title>
 </head>
 <body>
-    <h2>Details</h2>
+    <h2>Experiences</h2>
     <hr />
-    <p>Experiences in @Html.DisplayFor(model => model.Name):</p>
+    <h3>Experiences in @Html.DisplayFor(model => model.Name):</h3>
     @foreach(var listExperience in Model.Experiences)
     {
         <ul>
             <li>@Html.DisplayFor(modelExperience => listExperience.Description)</li>
         </ul>
+        @foreach (var listPeople in listExperience.Peoples)
+        {
+            <p>Person: @Html.DisplayFor(modelpeople => listPeople.Name)</p>
+        }
     }
+    <hr />
     <p>@Html.ActionLink("Back to the list", "Index")</p>
 </body>
 </html>

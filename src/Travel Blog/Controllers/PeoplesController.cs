@@ -12,7 +12,7 @@ namespace Travel_Blog.Controllers
         private TravelBlogDbContext db = new TravelBlogDbContext();
         public IActionResult Index()
         {
-            return View(db.Peoples.ToList());
+         return View(db.Peoples.ToList());
         }
         public IActionResult Details(int id)
         {

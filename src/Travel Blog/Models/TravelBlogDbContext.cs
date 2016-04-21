@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Entity;
+﻿
+using Microsoft.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,12 @@ namespace Travel_Blog.Models
 {
     public class TravelBlogDbContext : DbContext
     {
-        public DbSet<Experience> Experiences { get; set; }
-        public DbSet<Location> Locations { get; set; }
-        public DbSet<People> Peoples { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<Experience> Experiences { get; set; }
+        public virtual DbSet<People> Peoples { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=TravelBlog;integrated security = True");
+        }
     }
 }
