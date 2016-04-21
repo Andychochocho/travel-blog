@@ -9,7 +9,7 @@ namespace Travel_Blog.Controllers
 {
     public class ExperiencesController : Controller
     {
-        private TravelBlogContext db = new TravelBlogContext();
+        private TravelBlogDbContext db = new TravelBlogDbContext();
         public IActionResult Index()
         {
             return View(db.Experiences.ToList());
