@@ -11,8 +11,11 @@
     <ul>
         @foreach (var listLocation in Model)
         {
-            <li>@Html.DisplayFor(modelLocation => listLocation.Name) | @Html.ActionLink("Details", "Details", new { id = listLocation.LocationId })</li>
+            <li>@Html.DisplayFor(modelLocation => listLocation.Name) | @Html.ActionLink("Details", "Details", new { id = listLocation.LocationId }) | @Html.ActionLink("Edit", "Edit", new { id = listLocation.LocationId }) | @Html.ActionLink("Delete", "Delete", new { id = listLocation.LocationId})</li>
         }
     </ul>
+    @Html.ActionLink("Add new Location", "Create")
+    <br />
+    @Html.ActionLink("Go home","Index", "Home")
 </body>
 </html>

@@ -12,11 +12,14 @@
     {
         <ul>
             <li>@Html.DisplayFor(modelExperience => listExperience.Description)</li>
+            <p>People: </p>
+            @foreach (var listPeople in listExperience.Peoples)
+            {
+                <ul>
+                    <li>@Html.DisplayFor(modelpeople => listPeople.Name)</li>
+                </ul>
+            }
         </ul>
-        @foreach (var listPeople in listExperience.Peoples)
-        {
-            <p>Person: @Html.DisplayFor(modelpeople => listPeople.Name)</p>
-        }
     }
     <hr />
     <p>@Html.ActionLink("Back to the list", "Index")</p>
